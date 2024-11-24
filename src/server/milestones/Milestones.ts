@@ -18,11 +18,11 @@ import {RimSettler} from './RimSettler';
 import {Networker} from './Networker';
 import {OneGiantStep} from '../moon/OneGiantStep';
 import {Lunarchitect} from '../moon/Lunarchitect';
-import {Economizer} from './Economizer';
-import {Pioneer} from './Pioneer';
-import {LandSpecialist} from './LandSpecialist';
-import {Martian} from './Martian';
-import {Businessperson} from './Businessperson';
+import {Economizer} from './arabiaTerra/Economizer';
+import {Pioneer} from './arabiaTerra/Pioneer';
+import {LandSpecialist} from './arabiaTerra/LandSpecialist';
+import {Martian} from './arabiaTerra/Martian';
+import {Businessperson} from './arabiaTerra/Businessperson';
 import {Capitalist} from './Capitalist';
 import {Electrician} from './Electrician';
 import {Irrigator} from './Irrigator';
@@ -40,6 +40,19 @@ import {Spacefarer} from './terraCimmeria/Spacefarer';
 import {TerraPioneer} from './terraCimmeria/TerraPioneer';
 import {Risktaker} from './underworld/Risktaker';
 import {Tunneler} from './underworld/Tunneler';
+import {Fundraiser} from './modular/Fundraiser';
+import {Geologist} from './modular/Geologist';
+import {Landshaper} from './modular/Landshaper';
+import {Philantropist} from './modular/Philantropist';
+import {Planetologist} from './modular/Planetologist';
+import {Producer} from './modular/Producer';
+import {Researcher} from './modular/Researcher';
+import {Sponsor} from './modular/Sponsor';
+import {Lobbyist} from './modular/Lobbyist';
+import {Breeder} from './modular/Breeder';
+// import {Briber} from './modular/Briber';
+import {ThermoEngineer} from './modular/ThermoEngineer';
+// import {Merchant} from './modular/Merchant';
 
 export const THARSIS_MILESTONES = [
   new Terraformer(),
@@ -123,6 +136,22 @@ export const UNDERWORLD_MILESTONES = [
   new Tunneler(),
 ];
 
+export const MODULAR_MILESTONES = [
+  new Breeder(),
+  // new Briber(),
+  new Fundraiser(),
+  new Geologist(),
+  new Landshaper(),
+  new Lobbyist(),
+  // new Merchant(),
+  new Philantropist(),
+  new Planetologist(),
+  new Producer(),
+  new Researcher(),
+  new Sponsor(),
+  new ThermoEngineer(),
+];
+
 export const ALL_MILESTONES = [
   ...THARSIS_MILESTONES,
   ...ELYSIUM_MILESTONES,
@@ -136,6 +165,7 @@ export const ALL_MILESTONES = [
   ...TERRA_CIMMERIA_MILESTONES,
   ...VASTITAS_BOREALIS_MILESTONES,
   ...UNDERWORLD_MILESTONES,
+  ...MODULAR_MILESTONES,
 ];
 
 // Remove namespace and rename function
