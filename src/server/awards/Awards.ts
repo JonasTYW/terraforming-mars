@@ -20,20 +20,20 @@ import {FullMoon} from '../moon/FullMoon';
 import {LunarMagnate} from '../moon/LunarMagnate';
 import {CosmicSettler} from './arabiaTerra/CosmicSettler';
 import {Botanist} from './arabiaTerra/Botanist';
-import {Coordinator} from './arabiaTerra/Coordinator';
+import {Promoter} from './arabiaTerra/Promoter';
 import {Zoologist} from './arabiaTerra/Zoologist';
 import {AManufacturer} from './arabiaTerra/Manufacturer';
-import {Adapter} from './Adapter';
+import {Forecaster} from './Forecaster';
 import {Edgedancer} from './Edgedancer';
-import {Hoarder} from './Hoarder';
+import {Visionary} from './Visionary';
 import {Naturalist} from './Naturalist';
 import {Voyager} from './Voyager';
 import {Curator} from './amazonisPlanitia/Curator';
-import {Engineer} from './amazonisPlanitia/Engineer';
+import {AmazonisEngineer} from './amazonisPlanitia/AmazonisEngineer';
 import {Tourist} from './amazonisPlanitia/Tourist';
 import {Biologist} from './terraCimmeria/Biologist';
 import {Economizer2} from './terraCimmeria/Economizer2';
-import {TPolitician} from './terraCimmeria/Politician';
+import {TPolitician} from './terraCimmeria/TPolitician';
 import {Urbanist} from './terraCimmeria/Urbanist';
 import {Warmonger} from './terraCimmeria/Warmonger';
 import {Zoologist2} from './amazonisPlanitia/Zoologist';
@@ -52,6 +52,8 @@ import {Electrician} from './modular/Electrician';
 import {Collector} from './modular/Collector';
 import {Politician} from './modular/Politician';
 import {Manufacturer} from './modular/Manufacturer';
+import {Incorporator} from './modular/Incorporator';
+import {Rugged} from './Rugged';
 
 export const THARSIS_AWARDS = [
   new Landlord(),
@@ -91,6 +93,7 @@ export const HELLAS_AWARDS = [
 
 export const ARES_AWARDS = [
   new Entrepreneur(),
+  new Rugged(),
 ];
 
 export const MOON_AWARDS = [
@@ -100,8 +103,8 @@ export const MOON_AWARDS = [
 
 export const AMAZONIS_PLANITIA_AWARDS = [
   new Curator(),
-  new Engineer(),
-  new Coordinator(),
+  new AmazonisEngineer(),
+  new Promoter(),
   new Tourist(),
   new Zoologist2(),
 ];
@@ -109,7 +112,7 @@ export const AMAZONIS_PLANITIA_AWARDS = [
 export const ARABIA_TERRA_AWARDS = [
   new CosmicSettler(),
   new Botanist(),
-  new Coordinator(),
+  new Promoter(),
   new Zoologist(),
   new AManufacturer(),
 ];
@@ -123,9 +126,9 @@ export const TERRA_CIMMERIA_AWARDS = [
 ];
 
 export const VASTITAS_BOREALIS_AWARDS = [
-  new Adapter(),
+  new Forecaster(),
   new Edgedancer(),
-  new Hoarder(),
+  new Visionary(),
   new Naturalist(),
   new Voyager(),
 ];
@@ -143,6 +146,7 @@ export const MODULAR_AWARDS = [
   new Founder(),
   new Highlander(),
   new Investor(),
+  new Incorporator(),
   new Landscaper(),
   new Manufacturer(),
   new Metropolist(),
@@ -168,14 +172,14 @@ export const ALL_AWARDS = [
 ];
 
 // Remove namespace and rename function
-export namespace Awards {
-  export const ALL = ALL_AWARDS;
+export function getAwardByName(name: string): IAward | undefined {
+  return ALL_AWARDS.find((a) => a.name === name);
+}
 
-  export function getByName(name: string): IAward {
-    const award = ALL_AWARDS.find((a) => a.name === name);
-    if (award) {
-      return award;
-    }
-    throw new Error(`Award ${name} not found.`);
+export function getAwardByNameOrThrow(name: string): IAward {
+  const award = getAwardByName(name);
+  if (award) {
+    return award;
   }
+  throw new Error(`Award ${name} not found.`);
 }
